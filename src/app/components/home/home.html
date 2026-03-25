@@ -1,0 +1,65 @@
+<div>
+  <!-- interpolation -->
+  <h1>{{ title }}</h1>
+  <!-- <h3>{{ name }}</h3>
+  <h5>{{ age }}</h5>
+  <h5>{{ isActive }}</h5> -->
+
+  <!-- <img [src]="user.image" alt="" />
+  <h3>{{ user.name }}</h3>
+  <h5>{{ user.age }}</h5>
+  <h6>{{ user.isActive }}</h6> -->
+</div>
+<!-- <hr /> -->
+
+<div>
+  <!-- Property Binding -->
+  <!-- <img [src]="img" [alt]="altImage" />
+  <input [type]="inputType" class="form-control mt-3" [placeholder]="inputPlaceholder" /> -->
+</div>
+
+<hr />
+
+<div>
+  <!-- Event Binding -->
+  <!-- <button class="btn btn-primary" (click)="userLog()">Log</button> -->
+
+  <!-- <h5>{{ title }}</h5>
+  <button class="btn btn-primary" (click)="changeTitle()">Change Title</button> -->
+</div>
+
+<div>
+  <!-- <img [src]="img" [alt]="altImage" /> -->
+  <br />
+  <br />
+  <!-- <button class="btn btn-primary" (click)="changeImage()">Change Image</button> -->
+
+  <!-- <img [src]="imgSrc" [alt]="altImage" />
+  <br />
+  <br />
+  <button class="btn btn-primary" (click)="toggleImage()">Toggle Image</button> -->
+</div>
+
+<div>
+  <!-- Two-way Binding -->
+  <!-- <h5>{{ title }}</h5> -->
+  <!-- <input type="text" class="form-control mt-3" placeholder="Change Title..." [(ngModel)]="title" /> -->
+</div>
+
+<!-- property binding -- []
+event binding --  () -->
+
+<!-- <div>
+  <label for="">User Name:</label>
+  <input type="text" class="form-control" [(ngModel)]="userName" (input)="displayUserName()" />
+</div> -->
+
+@if (showImage) {
+  <img src="images/iti.png" alt="" />
+}
+
+<br />
+<br />
+<!-- <button class="btn btn-warning" (click)="hideImage()">Hide Image</button> -->
+
+<button class="btn btn-warning" (click)="toggleImageShow()">Toggle Image</button>
