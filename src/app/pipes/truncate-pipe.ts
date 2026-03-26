@@ -1,0 +1,11 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'truncate',
+})
+export class TruncatePipe implements PipeTransform {
+  // if track name length > 5 (... ) : track name
+  transform(value: string, limit: number = 5): string {
+    return value.length > limit ? value.slice(0, limit) + '...' : value;
+  }
+}

@@ -1,0 +1,81 @@
+<div class="card" appHoverCard>
+  <div class="card-header">
+    <!-- class binding -->
+    <!-- <span [class]="myClasses">{{ item.name }}</span> -->
+    <!-- <span [class.text-success]="item.isActive">{{ item.name }}</span> -->
+    <!-- <span [class]="item.isActive ? 'text-success' : 'text-danger'">{{ item.name }}</span> -->
+    <!-- <span [class.text-success]="item.isActive" [class.text-danger]="!item.isActive">{{
+            item.name
+          }}</span> -->
+
+    <!-- ngClass - Directive -->
+    <!-- <span
+            [ngClass]="{
+              'text-success': item.isActive,
+              'text-danger': !item.isActive,
+              'fw-bold': item.studentsCount > 20,
+              'fst-italic': item.name === 'MEARN Track',
+            }"
+            >{{ item.name }}</span
+          > -->
+
+    <!-- style binding -->
+    <!-- <span [style.color]="'green'">{{ item.name }}</span> -->
+    <!-- <span [style.color]="item.isActive ? 'green' : 'red'">{{ item.name }}</span> -->
+    <!-- <span
+            [style.color]="item.isActive ? 'green' : 'red'"
+            [style.font-size.px]="item.studentsCount > 20 ? 20 : 14"
+            >{{ item.name }}</span
+          > -->
+
+    <!-- text-decoration : 'line-through' -->
+    <!-- <span
+            [ngStyle]="{
+              'text-decoration': !item.isActive && 'line-through',
+              color: item.isActive ? 'green' : 'red',
+              'background-color': 'lightyellow',
+            }"
+            >{{ item.name }}</span
+          > -->
+
+    <span>{{ item.name | truncate: 2 }}</span>
+  </div>
+  <div class="card-body">
+    <p>Students Count : {{ item.studentsCount }}</p>
+
+    <!-- @if (item.studentsCount > 40) {
+            <p>Students Count is very large.</p>
+          } @else if (item.studentsCount === 20) {
+            <p>Students Count is medium.</p>
+          } @else {
+            <p>Students Count is normal.</p>
+          } -->
+
+    @switch (item.studentsCount) {
+      @case (40) {
+        <p>Students Count is very large.</p>
+      }
+      @case (30) {
+        <p>Students Count is large.</p>
+      }
+      @case (20) {
+        <p>Students Count is medium.</p>
+      }
+      @default {
+        <p>Students Count is normal.</p>
+      }
+    }
+    <p>Active ? : {{ item.isActive }}</p>
+
+    @if (item.isActive) {
+      <p class="text-success">Track is Active</p>
+    } @else {
+      <p class="text-danger">Track is not Active</p>
+    }
+  </div>
+
+  <div class="card-footer d-flex gap-3">
+    <button type="button" class="btn btn-outline-primary">Go Details</button>
+    <button type="button" class="btn btn-outline-danger" (click)="deleteTrack()">Delete</button>
+  </div>
+</div>

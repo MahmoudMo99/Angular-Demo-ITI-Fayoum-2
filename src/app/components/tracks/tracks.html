@@ -1,57 +1,49 @@
 <div>
-  <h3>Tracks List Page</h3>
+  <h3>{{ 'Tracks List Page' | uppercase }}</h3>
+  <!-- <h3>{{ 'Tracks List Page' | lowercase }}</h3> -->
+  <!-- <h3>{{ 'Tracks List Page' | titlecase }}</h3> -->
 </div>
+
+<!-- <div>
+  {{ currentDate | date }}
+</div> -->
+
+<!-- <div>
+  {{ currentDate | date: 'short' }}
+</div>
+
+<div>
+  {{ currentDate | date: 'medium' }}
+</div>
+
+<div>
+  {{ currentDate | date: 'long' }}
+</div>
+
+<div>
+  {{ currentDate | date: 'full' }}
+</div>
+
+<div>
+  {{ currentDate | date: 'MMMM d, y' }}
+</div> -->
+
+<!-- <div>
+  {{ TotalPrice | currency }}
+</div>
+
+<div>
+  {{ TotalPrice | currency: 'EGP' }}
+</div> -->
+
 <hr />
 
 <!-- for loop -->
 
 <div class="row g-3">
-  @for (item of tracks; track item.id; let i = $index) {
+  @for (trackItem of tracks; track trackItem.id; let i = $index) {
     <div class="col-12 col-md-4">
-      <div class="card">
-        <div class="card-header">
-          <span>{{ i + 1 }}</span> -
-          <span class="fw-bold">{{ item.name }}</span>
-        </div>
-        <div class="card-body">
-          <p>Students Count : {{ item.studentsCount }}</p>
-
-          <!-- @if (item.studentsCount > 40) {
-            <p>Students Count is very large.</p>
-          } @else if (item.studentsCount === 20) {
-            <p>Students Count is medium.</p>
-          } @else {
-            <p>Students Count is normal.</p>
-          } -->
-
-          @switch (item.studentsCount) {
-            @case (40) {
-              <p>Students Count is very large.</p>
-            }
-            @case (30) {
-              <p>Students Count is large.</p>
-            }
-            @case (20) {
-              <p>Students Count is medium.</p>
-            }
-            @default {
-              <p>Students Count is normal.</p>
-            }
-          }
-          <p>Active ? : {{ item.isActive }}</p>
-
-          @if (item.isActive) {
-            <p class="text-success">Track is Active</p>
-          } @else {
-            <p class="text-danger">Track is not Active</p>
-          }
-        </div>
-
-        <div class="card-footer d-flex gap-3">
-          <button type="button" class="btn btn-outline-primary">Go Details</button>
-          <button type="button" class="btn btn-outline-danger">Delete</button>
-        </div>
-      </div>
+      <app-track-card [item]="trackItem" (deleted)="removeTrack($event)"></app-track-card>
     </div>
   } @empty {
     <p class="fs-3 text-center text-danger">No Tracks Found.</p>
