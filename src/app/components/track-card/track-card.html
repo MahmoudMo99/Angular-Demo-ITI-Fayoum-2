@@ -75,7 +75,13 @@
   </div>
 
   <div class="card-footer d-flex gap-3">
-    <button type="button" class="btn btn-outline-primary">Go Details</button>
+    <!-- <button type="button" class="btn btn-outline-primary" [routerLink]="['/tracks', item.id]">
+      Go Details
+    </button> -->
+
+    <button type="button" class="btn btn-outline-primary" (click)="goToDetails(item.id)">
+      Go Details
+    </button>
     <button type="button" class="btn btn-outline-danger" (click)="deleteTrack()">Delete</button>
   </div>
 </div>

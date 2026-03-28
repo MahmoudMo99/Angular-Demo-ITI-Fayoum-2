@@ -2,6 +2,11 @@
   <h3>{{ 'Tracks List Page' | uppercase }}</h3>
   <!-- <h3>{{ 'Tracks List Page' | lowercase }}</h3> -->
   <!-- <h3>{{ 'Tracks List Page' | titlecase }}</h3> -->
+
+  <button class="btn btn-primary">
+    Tracks Count
+    <span class="badge bg-danger">{{ trackService.TracksCount }}</span>
+  </button>
 </div>
 
 <!-- <div>
@@ -37,6 +42,23 @@
 </div> -->
 
 <hr />
+
+<!-- data binding -->
+<div>
+  <input
+    type="text"
+    class="form-control mt-3"
+    placeholder="Enter new track name..."
+    [(ngModel)]="newTrackName"
+  />
+</div>
+<button class="btn btn-primary my-3" (click)="AddTrack()">Add Track</button>
+
+<!-- Template Reference : direct access -->
+<!-- <div>
+  <input #trackInput type="text" class="form-control mt-3" placeholder="Enter new track name..." />
+</div>
+<button class="btn btn-primary my-3" (click)="AddTrackRef(trackInput.value)">Add Track</button> -->
 
 <!-- for loop -->
 
