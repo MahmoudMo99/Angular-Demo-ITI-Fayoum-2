@@ -11,6 +11,7 @@ export class Track {
       isActive: true,
       studentsCount: 20,
       hidden: false,
+      status: 'active',
     },
 
     {
@@ -18,6 +19,7 @@ export class Track {
       name: 'MEARN Track',
       isActive: true,
       studentsCount: 30,
+      status: 'active',
     },
 
     {
@@ -25,6 +27,7 @@ export class Track {
       name: 'Software Fund. Track',
       isActive: false,
       studentsCount: 40,
+      status: 'inactive',
     },
 
     {
@@ -32,6 +35,7 @@ export class Track {
       name: 'Power BI Track',
       isActive: true,
       studentsCount: 10,
+      status: 'inactive',
     },
   ];
 
@@ -56,6 +60,7 @@ export class Track {
       name,
       isActive: true,
       studentsCount: 5,
+      status: 'active',
     });
   }
 

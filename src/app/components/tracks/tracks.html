@@ -63,7 +63,7 @@
 <!-- for loop -->
 
 <div class="row g-3">
-  @for (trackItem of tracks; track trackItem.id; let i = $index) {
+  @for (trackItem of filteredTracks; track trackItem.id; let i = $index) {
     <div class="col-12 col-md-4">
       <app-track-card [item]="trackItem" (deleted)="removeTrack($event)"></app-track-card>
     </div>

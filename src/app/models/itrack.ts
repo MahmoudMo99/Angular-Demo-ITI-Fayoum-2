@@ -3,5 +3,6 @@ export interface ITrack {
   name: string;
   isActive: boolean;
   studentsCount: number;
+  status: string;
   hidden?: boolean;
 }

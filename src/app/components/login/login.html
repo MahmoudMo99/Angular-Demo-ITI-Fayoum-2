@@ -1,0 +1,60 @@
+<div class="background">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+
+<!-- Template Driven Form -- Directives : ngModel -->
+<!-- Forms States : valid , invalid , dirty -->
+
+<!-- ngForm : directive to hold form to access states -->
+<!-- #loginForm : collect form input values -->
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <h3>Login Here</h3>
+
+  <!-- [(ngModel)] exported as === ngModel  -->
+  <label for="username">Username</label>
+  <input
+    class="form-control"
+    type="email"
+    placeholder="Email or Phone"
+    id="email"
+    name="email"
+    ngModel
+    #userCtl="ngModel"
+    email
+    required
+    pattern="^[a-zA-Z0-9+_.-]+@gmail\.com$"
+    [class.is-invalid]="userCtl.invalid && userCtl.touched"
+    [class.is-valid]="userCtl.valid && userCtl.touched"
+  />
+
+  @if (userCtl.invalid && userCtl.touched) {
+    <div class="text-danger">Email is required and must be valid</div>
+  } @else {
+    <div class="text-success">Email is valid</div>
+  }
+
+  <label for="password">Password</label>
+  <input
+    class="form-control"
+    type="password"
+    placeholder="Password"
+    id="password"
+    name="password"
+    ngModel
+    required
+    #passwordCtl="ngModel"
+    [class.is-invalid]="passwordCtl.invalid && passwordCtl.touched"
+    [class.is-valid]="passwordCtl.valid && passwordCtl.touched"
+  />
+
+  @if (passwordCtl.invalid && passwordCtl.touched) {
+    <div class="text-danger">Password is required and must be valid</div>
+  } @else {
+    <div class="text-success">Password is valid</div>
+  }
+
+  <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary w-100 mt-5">
+    Log In
+  </button>
+</form>

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 @Component({
   selector: 'app-home',
-  imports: [FormsModule],
+  imports: [FormsModule, ButtonModule, CardModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

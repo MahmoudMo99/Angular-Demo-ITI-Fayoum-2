@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ITrack } from '../../models/itrack';
 import { Track } from '../../services/track';
@@ -9,17 +9,29 @@ import { Track } from '../../services/track';
   templateUrl: './track-details.html',
   styleUrl: './track-details.css',
 })
-export class TrackDetails {
+export class TrackDetails implements OnInit, OnDestroy {
   track?: ITrack;
   constructor(
     private activatedRoute: ActivatedRoute,
     private trackService: Track,
-  ) {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    console.log(id);
-    console.log(typeof id);
+  ) {}
 
+  private timerId: any;
+
+  ngOnInit(): void {
+    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    // console.log(id);
+    // console.log(typeof id);
     this.track = this.trackService.getTrackById(id);
-    console.log(this.track);
+    // console.log(this.track);
+
+    this.timerId = setInterval(() => {
+      console.log('Task Details is still running');
+    }, 1000);
+  }
+  // before destroy
+  ngOnDestroy(): void {
+    clearInterval(this.timerId);
+    console.log('Task Details stopped');
   }
 }

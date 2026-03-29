@@ -4,11 +4,11 @@ import { TruncatePipe } from '../../pipes/truncate-pipe';
 import { HoverCard } from '../../directives/hover-card';
 import { CommonModule } from '@angular/common';
 import { Track } from '../../services/track';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-track-card',
-  imports: [TruncatePipe, HoverCard, CommonModule, RouterLink],
+  imports: [TruncatePipe, HoverCard, CommonModule],
   templateUrl: './track-card.html',
   styleUrl: './track-card.css',
 })

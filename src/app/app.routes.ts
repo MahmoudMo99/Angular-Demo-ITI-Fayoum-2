@@ -5,6 +5,9 @@ import { NotFound } from './components/not-found/not-found';
 import { AboutUs } from './components/about-us/about-us';
 import { ContactUs } from './components/contact-us/contact-us';
 import { TrackDetails } from './components/track-details/track-details';
+import { TracksContainer } from './components/tracks-container/tracks-container';
+import { Login } from './components/login/login';
+import { Register } from './components/register/register';
 
 export const routes: Routes = [
   {
@@ -19,8 +22,21 @@ export const routes: Routes = [
   },
 
   {
+    path: 'login',
+    component: Login,
+  },
+  {
+    path: 'register',
+    component: Register,
+  },
+  {
     path: 'tracks',
     component: Tracks,
+  },
+
+  {
+    path: 'tracks-container',
+    component: TracksContainer,
   },
 
   {

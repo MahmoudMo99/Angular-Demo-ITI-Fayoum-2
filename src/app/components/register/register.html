@@ -1,0 +1,48 @@
+<!-- Reactive Form -->
+<div class="background">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+<form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+  <h3>Register Here</h3>
+
+  <label for="username">Username</label>
+  <input
+    class="form-control"
+    type="email"
+    placeholder="Email or Phone"
+    id="email"
+    email
+    required
+    formControlName="email"
+    [class.is-invalid]="emailControl?.invalid && emailControl?.touched"
+    [class.is-valid]="emailControl?.valid && emailControl?.touched"
+  />
+
+  @if (emailControl?.invalid && emailControl?.touched) {
+    <div class="text-danger">Email is required and must be valid</div>
+  } @else {
+    <div class="text-success">Email is valid</div>
+  }
+
+  <label for="password">Password</label>
+  <input
+    class="form-control"
+    type="password"
+    placeholder="Password"
+    id="password"
+    required
+    formControlName="password"
+    [class.is-invalid]="passwordControl?.invalid && passwordControl?.touched"
+    [class.is-valid]="passwordControl?.valid && passwordControl?.touched"
+  />
+  @if (passwordControl?.invalid && passwordControl?.touched) {
+    <div class="text-danger">Password is required and must be valid</div>
+  } @else {
+    <div class="text-success">Password is valid</div>
+  }
+
+  <button type="submit" class="btn btn-primary w-100 mt-5" [disabled]="formRegister.invalid">
+    Register
+  </button>
+</form>
