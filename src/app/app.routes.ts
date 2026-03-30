@@ -8,6 +8,9 @@ import { TrackDetails } from './components/track-details/track-details';
 import { TracksContainer } from './components/tracks-container/tracks-container';
 import { Login } from './components/login/login';
 import { Register } from './components/register/register';
+import { Posts } from './components/posts/posts';
+import { LoginWithAPI } from './components/login-with-api/login-with-api';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   {
@@ -25,6 +28,12 @@ export const routes: Routes = [
     path: 'login',
     component: Login,
   },
+
+  {
+    path: 'login-api',
+    component: LoginWithAPI,
+  },
+
   {
     path: 'register',
     component: Register,
@@ -42,6 +51,12 @@ export const routes: Routes = [
   {
     path: 'tracks/:id',
     component: TrackDetails,
+  },
+
+  {
+    path: 'posts',
+    component: Posts,
+    canActivate: [authGuard],
   },
 
   {

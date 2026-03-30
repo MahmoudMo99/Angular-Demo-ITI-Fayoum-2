@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterModule } from '@angular/router';
+import { Auth } from '../../services/auth';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,11 @@ import { RouterLink, RouterModule } from '@angular/router';
   styleUrl: './header.css',
 })
 export class Header {
-  isLoggedIn: boolean = false;
+  public authService = inject(Auth);
+  private router = inject(Router);
+
+  logout() {
+    this.authService.logout();
+    // this.router.navigate(['/login-api']);
+  }
 }
